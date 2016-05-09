@@ -8,16 +8,14 @@
 function:set log
 """
 
-from oslo_config import cfg
-from oslo_log import log as logging
+import logging
+import logging.config
 
-LOG = logging.getLogger(__name__)
-CONF = cfg.CONF
-DOMAIN = "demo"
+logging.config.fileConfig("../configures/log/logger.conf")
+logger = logging.getLogger(__name__)
 
-logging.register_options(CONF)
-logging.setup(CONF, DOMAIN)
+logger.debug("test logger")
+logger.info("test logger")
+logger.warn("test logger")
+logger.error("test logger")
 
-LOG.info("Oslo Logging")
-LOG.warning("Oslo Logging")
-LOG.error("Oslo Logging")

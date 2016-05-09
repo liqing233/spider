@@ -1,0 +1,6 @@
+2016-05-09 23:32:36,214 DEBUG __main__ test logger test_logger.py:17
+2016-05-09 23:32:36,214 INFO __main__ test logger test_logger.py:18
+2016-05-09 23:32:36,215 WARNING __main__ test logger test_logger.py:19
+2016-05-09 23:32:36,215 ERROR __main__ test logger test_logger.py:20
+2016-05-10 00:39:10,890 INFO __main__ send mail from 2557365400@qq.com to 18674450812@163.com Text is i love you Subject are I love you, love you sendmail.py:44
+2016-05-10 00:39:10,890 INFO __main__ send mail right! sendmail.py:45
