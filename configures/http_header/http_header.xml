@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<http_header>
+  <image name="common">
+    <Accept>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</Accept>
+    <Accept-Encoding>gzip, deflate, sdch</Accept-Encoding>
+    <Accept-Language>en-US,en;q=0.8</Accept-Language>
+    <Connection>keep-alive</Connection>
+    <User-Agent>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36</User-Agent>
+  </image>
+  <image name="baidu">
+    <Cache-Control>max-age=0</Cache-Control>
+    <Host>image.baidu.com</Host>
+    <Referer>http://image.baidu.com/</Referer>
+    <Upgrade-Insecure-Requests>1</Upgrade-Insecure-Requests>
+    <Cookie>AIDUPSID=DB7BB489C266482DC9FBB13965064D2A; BDUSS=1NXZGNqfldlR3k2T0N6RUkwSWRWaHRQaXozamhmVXBHUTZJckJKdVRaTWtFNjVVQVFBQUFBJCQAAAAAAAAAAAEAAAAYa5I7TmV3X3BpYW8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACSGhlQkhoZUZ; __zpspc=188.2.1420022178.1420022178.1%234%7C%7C%7C%7C%7C%23; locale=zh; BDREFER=%7Burl%3A%22http%3A//news.baidu.com/n%3Fcmd%3D4%26class%3Drolling%26pn%3D1%26from%3Dtab%26sub%3D0%22%2Cword%3A%22%22%7D; __xsptplus188=188.1.1423555632.1423555632.1%234%7C%7C%7C%7C%7C%23%23oApaXgLcSFDiLJlBO35fFagow0SPrtBL; BAIDUID=DE6C69D62DB72D74D90E85D04492344E:FG=1; BIDUPSID=DE6C69D62DB72D74D90E85D04492344E; fb=0; BDRCVFR[feWj1Vr5u3D]=I67x6TjHwwYf0; H_PS_PSSID=1441_13426_12657_13074_12670_10901_12867_13321_12692_13411_8502_12722_12735_13085_13325_13210_12836_13162_13257_11299_8498_10633; userid=3hsi32ht5; Hm_lvt_737dbb498415dd39d8abf5bc2404b290=1428548423,1428559255; Hm_lpvt_737dbb498415dd39d8abf5bc2404b290=1428559260</Cookie>
+  </image>
+</http_header>

@@ -9,7 +9,6 @@
 function:send mail
 """
 
-import sys
 import smtplib
 from email.mime.text import MIMEText
 import ConfigParser
@@ -17,11 +16,11 @@ import ConfigParser
 import logging
 import logging.config
 
-logging.config.fileConfig(r"../../configures/log/logger.conf")
+logging.config.fileConfig(r"../../../configures/log/logger.conf")
 logger = logging.getLogger(__name__)
 
 class sendmail(object):
-    def __init__(self,text,subject,config = r"../../configures/email/email.conf"):
+    def __init__(self,text,subject,config = r"../../../configures/email/email.conf"):
         cf = ConfigParser.ConfigParser()
         cf.read(config)
         self.Text = text
