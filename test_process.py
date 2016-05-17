@@ -14,6 +14,9 @@ import eventlet
 import os, datetime
 
 def task(cnt):
+    fp1 = open("test.txt","w+")
+    fp1.write("task\t"+str(cnt))
+    fp1.close()
     print("task\t"+str(cnt))
     print(datetime.datetime.now())
 
