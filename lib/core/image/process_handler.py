@@ -47,9 +47,11 @@ class process_handler(object):
             for cnt in range(len(urls)):
                 imageDownload.append((query, query+str(cnt)+".jpg", urls[cnt], int(get_conf.find(("image", ))["try_cnt"])))
             green_pool = eventlet.GreenPool()
-            green_pool.imap(self.image_download.down_load_image, imageDownload)
+            for status in green_pool.imap(self.image_download.down_load_image, imageDownload):
+                pass
 
-def query_process(pool):
+def query_process():
+    pool = Pool()
     logger.info("spider process %s" % os.getpid())
     spiders = eval(get_conf.find(("image", ))["spider_source"])
     logger.info(spiders[0])
@@ -59,11 +61,11 @@ def query_process(pool):
     logger.info("All of spiders done")
 
 def main():
-    logger.info("start process")
-    pool = Pool()
-    pro = Process(target=query_process,args=(pool,))
+    logger.info("start process at %s" % str(datetime.datetime.now()))
+    pro = Process(target=query_process,args=())
     pro.start()
     pro.join()
+    logger.info("end process at %s" % str(datetime.datetime.now()))
 
 if __name__ == "__main__":
     main()
