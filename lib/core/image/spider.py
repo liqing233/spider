@@ -5,28 +5,26 @@
 Created on 2015/7/21
 Author:LiQing
 QQ:626924971
-Tel:18674450812
+Tel:**********
 Function:The base of spider
 """
 
 import random
-import logging
 import re
 import urllib
 import time
 import requests
 
 from get_conf import get_conf
+from logger import logger
 import baidu_translate_url
-
-logging.config.fileConfig("../../../configures/log/logger.conf")
-logger = logging.getLogger(__name__)
 
 class spider(object):
     def __init__(self, timeout = int(get_conf.find(("image", ))["timeout"]), kwargs={}):
         self.http_header = get_conf.find(("http_header", "common"))
         self.http_header.update(kwargs)
         self.timeout = timeout
+
 
     def get_image_url_list(self, pattern, url):
         logger.info(url)
@@ -61,11 +59,11 @@ class baidu_spider(spider):
             else:
                 url = get_conf.find(("url", "baidu"))["url"] % (urllib.quote(query),urllib.quote(query),i*30,(i-1)*30,random.randint(1000000,9999999))
             result.extend(self.get_image_url_list(pattern ,url))
-        logger.info(result)
+        #logger.info(result)
         return result
 
     def get_image_url_list(self, pattern, url):
-        logger.info(url)
+        logger.info("[url]\t"+url)
         time.sleep(int(get_conf.find(("image", ))["time_wait"]))
         try:
             http_response = requests.get(url, headers=self.http_header, timeout=10)
@@ -88,5 +86,5 @@ class baidu_spider(spider):
 
 if __name__ == "__main__":
     baiduSpider = baidu_spider()
-    urls = baiduSpider.get_result(30,"dog")
-    logger.info(urls)
+    urls = baiduSpider.get_result(1000,"dog")
+    print(urls)

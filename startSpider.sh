@@ -1,1 +1,1 @@
-crontab -e
+python lib/core/image/process_handler.py

@@ -3,7 +3,7 @@
 """
 @author:liqing
 @email:626924971@qq.com
-@tel:18674450812
+@tel:*********
 @version:v1.0
 function:set log
 """

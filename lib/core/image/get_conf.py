@@ -4,18 +4,15 @@
 Created on 2015/7/21
 Author:LiQing
 QQ:626924971
-Tel:18674450812
+Tel:*********
 Function:get spider conf
 """
 
 import os
-import logging
-import logging.config
 import ConfigParser
 import xml.dom.minidom
 
-logging.config.fileConfig("../../../configures/log/logger.conf")
-logger = logging.getLogger(__name__)
+from logger import logger
 
 class get_conf():
     @classmethod
