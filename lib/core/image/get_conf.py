@@ -53,6 +53,8 @@ class get_conf():
                 image["try_cnt"] = cf.get("spider", "try_cnt")
                 image["image_cnt"] = cf.get("spider", "image_cnt")
                 image["spider_source"] = cf.get("spider", "spider_source")
+                image["download_image_process_cnt"] = cf.get("spider", "download_image_process_cnt")
+                image["max_query_process_cnt"] = cf.get("spider", "max_query_process_cnt")
                 return image
             except Exception as e:
                 logger.error(e)

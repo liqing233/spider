@@ -1,0 +1,8 @@
+shoes
+picture
+wall
+photo
+fish
+rabbit
+lock
+

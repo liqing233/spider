@@ -1,1 +1,3 @@
-python lib/core/image/process_handler.py
+cd lib/core/image
+python process_handler.py
+
