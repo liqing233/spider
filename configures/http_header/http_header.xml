@@ -23,4 +23,13 @@
     <X-Requested-With>XMLHttpRequest</X-Requested-With>
     <Cookie>CXID=D26B5F6A55DE89885F3797868DC74E97; SUV=00A5022DDCB526705735C8CD6CCB4620; ad=IVjWtZllll2g3xRklllllVN2Unolllll5YWIUlllljYlllll4Zlll5@@@@@@@@@@; SUID=50A9873D4E6C860A572810E000027D12; IPLOC=CN1100; JSESSIONID=aaaBzrb6HRz-ye5IO5juv; SNUID=D88E1C75A9AC9C8607F51A57A9B23C52; weixin_show=20160601; sct=2; ld=ylllllllll2gFOBHlllllVNnqu1lllllTaUutlllll9llllllylll5@@@@@@@@@@</Cookie>
   </image>
+  <image name="360">
+    <Accept>application/json, text/javascript, */*; q=0.01</Accept>
+    <Accept-Language>zh-CN,zh;q=0.8</Accept-Language>
+    <Host>image.so.com</Host>
+    <Referer>http://image.so.com/</Referer>
+    <User-Agent>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.87 Safari/537.36</User-Agent>
+    <X-Requested-With>XMLHttpRequest</X-Requested-With>
+    <Cookie>__guid=16527278.2806057110622553000.1464766191194.1052; PHPSESSID=2bb1tnd2n7rub8r9o4kvnf2h40; imfunentrystamp=1; count=6; test_cookie_enable=null</Cookie>
+  </image>
 </http_header>

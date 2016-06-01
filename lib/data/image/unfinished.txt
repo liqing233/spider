@@ -965,3 +965,5 @@
 2016-06-01 14:56:24.650120	http://pic10.wed114.cn/6/20131219/20131219174127950_300x300.jpg	shoes/shoes64.jpg
 2016-06-01 14:56:29.214496	http://u.ifengimg.com/alad/201307/09/14/3_b26b32430536.jpg	shoes/shoes77.jpg
 2016-06-01 14:56:29.235750	http://u.ifengimg.com/alad/201307/09/14/3_c3092c77bb49.jpg	shoes/shoes78.jpg
+2016-06-01 17:13:49.563211	http://cdn102.iofferphoto.com/img/item/190/389/552/cat-man-outdoor-work-shoes-boots-outdoor-shoe-4ef4e.jpg	shoes/shoes4.jpg
+2016-06-01 17:13:54.229995	http://www.anyouhui.com/upload/images/500x500/201207/77/0761015006c2f3097c3.jpg	picture/picture3.jpg

@@ -100,6 +100,9 @@ class process_handler(object):
                 elif "sougou" in self.spiders:
                     sougouSPider = sp.sougou_spider()
                     urls.extend(sougouSPider.get_result(int(get_conf.find(("image", ))["image_cnt"]), query))
+                elif "360" in self.spiders:
+                    qihuSpider = sp.qihu_spider()
+                    urls.extend(qihuSpider.get_result(int(get_conf.find(("image",))["image_cnt"]), query))
                 else:
                     logger.error("No spider of\t"+query)
                     raise AttributeError("No spider of\t"+query)
