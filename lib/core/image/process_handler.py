@@ -97,6 +97,9 @@ class process_handler(object):
                 if "baidu" in self.spiders:
                     baiduSpider = sp.baidu_spider()
                     urls.extend(baiduSpider.get_result(int(get_conf.find(("image", ))["image_cnt"]), query))
+                elif "sougou" in self.spiders:
+                    sougouSPider = sp.sougou_spider()
+                    urls.extend(sougouSPider.get_result(int(get_conf.find(("image", ))["image_cnt"]), query))
                 else:
                     logger.error("No spider of\t"+query)
                     raise AttributeError("No spider of\t"+query)

@@ -31,6 +31,16 @@ class get_conf():
                             header["Referer"] = http_header.getElementsByTagName('Referer')[0].childNodes[0].data.encode("utf-8")
                             header["Upgrade-Insecure-Requests"] = http_header.getElementsByTagName('Upgrade-Insecure-Requests')[0].childNodes[0].data.encode("utf-8")
                             header["Cookie"] = http_header.getElementsByTagName('Cookie')[0].childNodes[0].data.encode("utf-8")
+                elif method[1] == "sougou":
+                    for http_header in http_headers:
+                        if http_header.getAttribute("name") == "sougou":
+                            header["Accept"] = http_header.getElementsByTagName('Accept')[0].childNodes[0].data.encode("utf-8")
+                            header["Accept-Language"] = http_header.getElementsByTagName('Accept-Language')[0].childNodes[0].data.encode("utf-8")
+                            header["Host"] = http_header.getElementsByTagName('Host')[0].childNodes[0].data.encode("utf-8")
+                            header["Referer"] = http_header.getElementsByTagName('Referer')[0].childNodes[0].data.encode("utf-8")
+                            header["User-Agent"] = http_header.getElementsByTagName('User-Agent')[0].childNodes[0].data.encode("utf-8")
+                            header["X-Requested-With"] = http_header.getElementsByTagName('X-Requested-With')[0].childNodes[0].data.encode("utf-8")
+                            header["Cookie"] = http_header.getElementsByTagName('Cookie')[0].childNodes[0].data.encode("utf-8")
                 elif method[1] == "common":
                     for http_header in http_headers:
                         if http_header.getAttribute("name") == "common":
@@ -66,6 +76,8 @@ class get_conf():
                 cf.read(config)
                 if method[1] == "baidu":
                     url["url"] = cf.get("baidu", "url")
+                elif method[1] == "sougou":
+                    url["url"] = cf.get("sougou", "url")
                 return url
             except Exception as e:
                 logger.error(e)
