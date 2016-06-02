@@ -32,4 +32,19 @@
     <X-Requested-With>XMLHttpRequest</X-Requested-With>
     <Cookie>__guid=16527278.2806057110622553000.1464766191194.1052; PHPSESSID=2bb1tnd2n7rub8r9o4kvnf2h40; imfunentrystamp=1; count=6; test_cookie_enable=null</Cookie>
   </image>
+  <tieba name="common">
+    <Accept>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</Accept>
+    <Accept-Encoding>gzip, deflate, sdch</Accept-Encoding>
+    <Accept-Language>en-US,en;q=0.8</Accept-Language>
+    <Connection>keep-alive</Connection>
+    <User-Agent>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36</User-Agent>
+  </tieba>
+  <tieba name="baidu">
+    <Accept>*/*</Accept>
+    <Accept-Language>zh-CN,zh;q=0.8</Accept-Language>
+    <Host>tieba.baidu.com</Host>
+    <Referer>http://tieba.baidu.com/</Referer>
+    <User-Agent>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36</User-Agent>
+  </tieba>
 </http_header>
+
