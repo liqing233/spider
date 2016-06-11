@@ -24,7 +24,7 @@ main()
 {
 echo "#***********************************#"
 echo "# 欢迎使用mysql集群安装脚本 #"
-echo "# Copyright 2013 by LiQing #"
+echo "# Copyright 2016 by LiQing #"
 echo "#***********************************#"
 sleep 1
 check_system
@@ -52,4 +52,6 @@ if [ $? = 0 ];then
 else
     echo "System is not support"
 fi
+exit 0
 }
+main

@@ -1,9 +1,11 @@
 #!usr/bin/env python
 #coding=utf8
 
-from sqlalchemy import Column, String, create_engine
+# from sqlalchemy import Column, String, create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+
+from sqlalchemy import create_engine,Table,Column,Integer,String,MetaData,ForeignKey
 
 # 创建对象的基类:
 Base = declarative_base()
@@ -17,6 +19,7 @@ class User(Base):
     id = Column(String(20), primary_key=True)
     name = Column(String(20))
 
+# engine=create_engine("mysql+pymysql://root:a5230411@localhost:3306/test",echo=True)
 # 初始化数据库连接:
 engine = create_engine('mysql+mysqlconnector://root:password@localhost:3306/test')
 # 创建DBSession类型:

@@ -40,6 +40,14 @@ class get_conf():
                             header["Accept-Language"] = http_header.getElementsByTagName('Accept-Language')[0].childNodes[0].data.encode("utf-8")
                             header["Connection"] = http_header.getElementsByTagName('Connection')[0].childNodes[0].data.encode("utf-8")
                             header["User-Agent"] = http_header.getElementsByTagName('User-Agent')[0].childNodes[0].data.encode("utf-8")
+                elif method[1] == "baidu_login":
+                    for http_header in http_headers:
+                        if http_header.getAttribute("name") == "baidu_login":
+                            header["Accept"] = http_header.getElementsByTagName('Accept')[0].childNodes[0].data.encode("utf-8")
+                            header["Accept-Language"] = http_header.getElementsByTagName('Accept-Language')[0].childNodes[0].data.encode("utf-8")
+                            header["Host"] = http_header.getElementsByTagName('Host')[0].childNodes[0].data.encode("utf-8")
+                            header["Referer"] = http_header.getElementsByTagName('Referer')[0].childNodes[0].data.encode("utf-8")
+                            header["User-Agent"] = http_header.getElementsByTagName('User-Agent')[0].childNodes[0].data.encode("utf-8")
                 return header
             except Exception as e:
                 logger.error(e)
@@ -83,7 +91,50 @@ class get_conf():
                 return file_home
             except Exception as e:
                 logger.error(e)
-
+        elif method[0] == "login":
+            user_info = {}
+            try:
+                config = "../../../configures/tieba_conf/tieba.conf"
+                cf = ConfigParser.ConfigParser()
+                cf.read(config)
+                if method[1] == "tieba":
+                    user_info["url"] = cf.get("login", "url")
+                    user_info["home"] = cf.get("login", "home")
+                    user_info["login"] = cf.get("login", "login")
+                    user_info["check"] = cf.get("login", "check")
+                elif method[1] == "baidu_login":
+                    user_info["username"] = cf.get("login_post", "username")
+                    user_info["password"] = cf.get("login_post", "password")
+                    user_info["u"] = cf.get("login_post", "u")
+                    user_info["tpl"] = cf.get("login_post", "tpl")
+                    user_info["token"] = cf.get("login_post", "token")
+                    user_info["staticpage"] = cf.get("login_post", "staticpage")
+                    user_info["isPhone"] = cf.get("login_post", "isPhone")
+                    user_info["charset"] = cf.get("login_post", "charset")
+                    user_info["tt"] = cf.get("login_post", "tt")
+                    user_info["loginmerge"] = cf.get("login_post", "loginmerge")
+                    user_info["subpro"] = cf.get("login_post", "subpro")
+                    user_info["apiver"] = cf.get("login_post", "apiver")
+                    user_info["codestring"] = cf.get("login_post", "codestring")
+                    user_info["safeflg"] = cf.get("login_post", "safeflg")
+                    user_info["detect"] = cf.get("login_post", "detect")
+                    user_info["gid"] = cf.get("login_post", "gid")
+                    user_info["quick_user"] = cf.get("login_post", "quick_user")
+                    user_info["logintype"] = cf.get("login_post", "logintype")
+                    user_info["idc"] = cf.get("login_post", "idc")
+                    user_info["loginmerge"] = cf.get("login_post", "loginmerge")
+                    user_info["verifycode"] = cf.get("login_post", "verifycode")
+                    user_info["mem_pass"] = cf.get("login_post", "mem_pass")
+                    user_info["rsakey"] = cf.get("login_post", "rsakey")
+                    user_info["crypttype"] = cf.get("login_post", "crypttype")
+                    user_info["ppui_logintime"] = cf.get("login_post", "ppui_logintime")
+                    user_info["countrycode"] = cf.get("login_post", "countrycode")
+                    user_info["callback"] = cf.get("login_post", "callback")
+                elif method[1] == "login_check":
+                    user_info["name"] = cf.get("login_check", "name")
+                return user_info
+            except Exception as e:
+                logger.error(e)
         else:
             raise NoMethod(method)
 
