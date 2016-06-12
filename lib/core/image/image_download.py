@@ -34,11 +34,11 @@ class image_download(object):
                 with open(get_conf.find(("file", ))["error_home"], "a+") as f:
                     f.write(str(datetime.datetime.now())+"\t"+url+"\t"+os.path.join(file_path, file_name)+"\n")
             return False
-        try:
-            file_path = file_path.decode("utf8").encode("gb2312")
-            file_name = file_name.decode("utf8").encode("gb2312")
-        except:
-            return False
+        # try:
+        #     file_path = file_path.decode("utf8").encode("gb2312")
+        #     file_name = file_name.decode("utf8").encode("gb2312")
+        # except:
+        #     return False
         if not os.path.exists(os.path.join(get_conf.find(("file", ))["image_path"], file_path)):
             try:
                 os.makedirs(os.path.join(get_conf.find(("file", ))["image_path"], file_path))

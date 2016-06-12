@@ -108,12 +108,15 @@ class sougou_spider(spider):
             http_response_status = http_response.status_code
             http_response = http_response.content
             try_cnt = 3
-            while (http_response_status >= 300 and try_cnt > 0):
+            null_flag = False
+            while (http_response_status >= 300 and try_cnt > 0 and not null_flag):
                 time.sleep(int(get_conf.find(("image",))["time_wait"]))
                 http_response = requests.get(url, headers=self.http_header, timeout=10)
                 http_response_status = http_response.status_code
                 http_response = http_response.content.decode('utf-8')
                 try_cnt -= 1
+                if len(re.findall(pattern, http_response)) == 0:
+                    null_flag = True
             if http_response_status >= 300:
                 logger.warn(url)
             return re.findall(pattern, http_response)
@@ -144,12 +147,15 @@ class qihu_spider(spider):
             http_response_status = http_response.status_code
             http_response = http_response.content
             try_cnt = 3
-            while (http_response_status >= 300 and try_cnt > 0):
+            null_flag = False
+            while (http_response_status >= 300 and try_cnt > 0 and not null_flag):
                 time.sleep(int(get_conf.find(("image",))["time_wait"]))
                 http_response = requests.get(url, headers=self.http_header, timeout=10)
                 http_response_status = http_response.status_code
                 http_response = http_response.content.decode('utf-8')
                 try_cnt -= 1
+                if len(re.findall(pattern, http_response)) == 0:
+                    null_flag = True
             if http_response_status >= 300:
                 logger.warn(url)
             return [obj_url.replace("\\", "") for obj_url in re.findall(pattern, http_response)]

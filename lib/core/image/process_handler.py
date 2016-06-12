@@ -94,18 +94,20 @@ class process_handler(object):
                 total_num += 1
                 logger.info("query num is : %s" % total_num)
                 urls = []
-                if "baidu" in self.spiders:
-                    baiduSpider = sp.baidu_spider()
-                    urls.extend(baiduSpider.get_result(int(get_conf.find(("image", ))["image_cnt"]), query))
-                elif "sougou" in self.spiders:
-                    sougouSPider = sp.sougou_spider()
-                    urls.extend(sougouSPider.get_result(int(get_conf.find(("image", ))["image_cnt"]), query))
-                elif "360" in self.spiders:
-                    qihuSpider = sp.qihu_spider()
-                    urls.extend(qihuSpider.get_result(int(get_conf.find(("image",))["image_cnt"]), query))
-                else:
-                    logger.error("No spider of\t"+query)
-                    raise AttributeError("No spider of\t"+query)
+                for spider in self.spiders:
+                    logger.info(spider)
+                    if "baidu" == spider:
+                        baiduSpider = sp.baidu_spider()
+                        urls.extend(baiduSpider.get_result(int(get_conf.find(("image", ))["image_cnt"]), query))
+                    elif "sougou" == spider:
+                        sougouSPider = sp.sougou_spider()
+                        urls.extend(sougouSPider.get_result(int(get_conf.find(("image", ))["image_cnt"]), query))
+                    elif "360" == spider:
+                        qihuSpider = sp.qihu_spider()
+                        urls.extend(qihuSpider.get_result(int(get_conf.find(("image",))["image_cnt"]), query))
+                    else:
+                        logger.error("No spider of\t"+spider)
+                        raise AttributeError("No spider of\t"+spider)
                 sigle_num = 0
                 try:
                     logger.info("[cnt]\tcnt of url is:"+str(len(urls)))
@@ -116,7 +118,6 @@ class process_handler(object):
                     except Exception as e:
                         logger.error(e)
                     url_set = dic.keys()
-                    logger.info("cnt of url is:"+str(len(url_set)))
                     for url in url_set:
                         sigle_num += 1
                         if sigle_num == len(url_set):
