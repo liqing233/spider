@@ -21,7 +21,6 @@ from logger import logger
 
 global_lock = Lock()
 global_start_flag = False
-last_flag = False
 
 # def query_handler(spider, query_set):
 #     logger.info("query_handler")
@@ -132,7 +131,6 @@ class process_handler(object):
                     logger.error(e)
 
     def image_download_handler(self):
-        global last_flag
         while True:
             #logger.info(self.url_queue.qsize())
             url_info = self.url_queue.get()
@@ -153,10 +151,10 @@ class process_handler(object):
                 else:
                     self.url_queue.put(url_info)
                     with global_lock:
-                        if not last_flag:
-                            last_flag = True
-                            with open(get_conf.find(("file", ))["finished_home"], "a+") as f:
-                                f.write(query+"\n")
+                        with open(get_conf.find(("file", ))["finished_home"], "a+") as f:
+                            fp1 = f.readlines()
+                            if fp1[-1].strip() != query:
+                                f.write(query + "\n")
                     break
             except Exception as e:
                 logger.error(e)
