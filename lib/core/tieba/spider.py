@@ -12,6 +12,7 @@ Function:The base of tieba spider
 import random
 import re
 import urllib
+import urllib2
 import time
 import requests
 
@@ -34,13 +35,6 @@ class spider(object):
         except Exception as e:
             logger.error(e)
             return []
-
-    def get_tieba_info_length(self, url, pattern):
-        """
-        @param url:第一个tieba页面的url，用来获取贴吧信息数目
-        @param pattern:抽取url的正则表达式
-        """
-        raise NotImplementedError()
 
     def get_tieba_info(self, url, pattern):
         """
@@ -65,32 +59,28 @@ class tieba_spider(spider):
         result = []
         first_url = get_conf.find(("url", "tieba"))["url"] % (
             urllib.quote(query), 0)
-        tieba_info_length = self.get_tieba_info_length(first_url, r'"<span class="red_text">(.*?)</span>篇"')
-        logger.info(tieba_info_length)
-        # for i in xrange(image_cnt / 50):
-        #     url = get_conf.find(("url", "tieba"))["url"] % (
-        #         urllib.quote(query), i*50)
-        #     result.extend(self.get_image_url_list(pattern, url))
-        # logger.info(result)
+        tieba_info_length = self.get_tieba_info(first_url, r'共有主题数<span class="red_text">(.*?)</span>个')
+        logger.info("[length] %s theme is %s" % (query, tieba_info_length[0]))
+        for cnt in xrange(int(tieba_info_length[0]) / 50):
+            url = get_conf.find(("url", "tieba"))["url"] % (
+                urllib.quote(query), cnt*50)
+            logger.info(self.get_tieba_info(url, r'href="/p/(.*?)"'))
+            result.extend(self.get_tieba_info(url, r'href="/p/(.*?)"'))
         return result
 
     def get_tieba_info(self, url, pattern):
-        pass
-
-    def get_tieba_info_length(self, url, pattern):
         logger.info("[url]\t" + url)
         time.sleep(int(get_conf.find(("tieba",))["time_wait"]))
         try:
             http_response = requests.get(url, headers=self.http_header, timeout=10)
             http_response_status = http_response.status_code
             http_response = http_response.content
-            logger.info(http_response)
             try_cnt = 3
             while (http_response_status >= 300 and try_cnt > 0):
                 time.sleep(int(get_conf.find(("tieba",))["time_wait"]))
                 http_response = requests.get(url, headers=self.http_header, timeout=10)
                 http_response_status = http_response.status_code
-                http_response = http_response.content.decode('utf-8')
+                http_response = http_response.content
                 try_cnt -= 1
             if http_response_status >= 300:
                 logger.warn(url)
