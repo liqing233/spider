@@ -17,6 +17,13 @@ engine = create_engine(DB_CONNECT_STRING, echo=True)
 DB_Session = sessionmaker(bind=engine)
 session = DB_Session()
 
+def check_table_exist(database, table):
+    try:
+        session.execute("create database if not exists %s " % database)
+        
+    except Exception as e:
+        print e
+
 def _check_image_download_url():
     try:
         session.execute("create database if not exists image_download_url")
