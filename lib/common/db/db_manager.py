@@ -35,6 +35,9 @@ def check_table_exist(database, table):
     except Exception as e:
         print e
 
+def insert_table():
+    pass
+
 def check_image_download_url():
     try:
         session.execute("create database if not exists image_download_url")
