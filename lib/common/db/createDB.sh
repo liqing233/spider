@@ -38,10 +38,11 @@ if [ $? = 0 ];then
         sudo apt-get install mysql-server
         if [ $? = 0 ];then
             echo "Now install mysql-client"
-            sudo apt-get isntall mysql-client
+            sudo apt-get install mysql-client
             if [ $? = 0 ];then
                 echo "Now install libmysqlclient-dev"
                 sudo apt-get install libmysqlclient-dev
+                sudo apt-get install python-mysqldb
                 if [ $? = 0 ];then
                     echo "Install MySQL is success"
                     sudo service mysql restart
